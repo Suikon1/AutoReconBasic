@@ -51,8 +51,8 @@ export PATH=$PATH:~/go/bin
 ### Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/AutoRecon.git
-cd AutoRecon
+git clone https://github.com/Suikon1/AutoReconBasic.git
+cd AutoReconBasic
 ```
 
 ### Instalar Dependencias Python

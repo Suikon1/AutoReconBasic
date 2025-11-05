@@ -1,0 +1,32 @@
+services:
+  autorecon:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: autorecon-app
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mount results directory to persist scan results
+      - ./results:/app/results
+      # Optional: mount custom wordlists or configs
+      # - ./wordlists:/app/wordlists
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    # Optional: limit resources
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '2'
+    #       memory: 4G
+    #     reservations:
+    #       cpus: '1'
+    #       memory: 2G
+    networks:
+      - autorecon-network
+
+networks:
+  autorecon-network:
+    driver: bridge
